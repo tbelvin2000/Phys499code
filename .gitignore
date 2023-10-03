@@ -3,3 +3,8 @@
 ffmpeg.exe
 *.png
 *.zip
+Report.aux
+Report.fdb_latexmk
+Report.fls
+Report.log
+Report.synctex.gz
