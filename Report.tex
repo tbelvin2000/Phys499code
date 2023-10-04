@@ -38,6 +38,31 @@ integrating from negative infinity to infinity with time gives
     I_y &= \frac{2 G M \partial m (b \sin (\phi )-z_{\text{wire}} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{v \left(b^2-z_{\text{wire}}^2 \cos ^2(\theta )+z_{\text{wire}}^2\right)}\\
     I_z &= -\frac{2 G M \partial m \text{ } z_{\text{wire}} \sin ^2(\theta )}{v \left(b^2-z_{\text{wire}}^2 \cos ^2(\theta )+z_{\text{wire}}^2\right)}
 \end{align}
+Dividing these impulses by $\partial m$ gives an initial velocity to each point on the wire which can be used to 
+solve the wave equation and show the time evolution of the wire after the impulse provided by the inciting particle.
+I also used pen and paper analysis to create a travelling wave pulse $\dot{\mathbf{\psi}}$ which matches the solutions provided
+by scipy's solve\_ivp method. It is easy to see that  $I_i = \dot{\psi_i} (z, 0)$
+\begin{align}
+    \dot{\psi} (z, t) &= {\dot{\psi} (z, t)}_L + {\dot{\psi} (z, t)}_R\\
+    \nonumber\\
+    \nonumber {\dot{\psi_x} (z, t)}_L &= \frac{G M}{v} \frac{b \cos (\phi )+ (z - w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z - w t)}^2 \sin ^2(\theta )}\\
+    \nonumber {\dot{\psi_x} (z, t)}_R &= \frac{G M}{v} \frac{b \cos (\phi )+ (z + w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z + w t)}^2 \sin ^2(\theta )}\\
+    \nonumber\\
+    \nonumber {\dot{\psi_y} (z, t)}_L &= \frac{G M}{v} \frac{(b \sin (\phi )-{(z + w t)} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
+    \nonumber {\dot{\psi_y} (z, t)}_R &= \frac{G M}{v} \frac{(b \sin (\phi )-{(z - w t)} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{\left(b^2-{(z - w t)}^2 \sin ^2(\theta )\right)}
+    \nonumber\\
+    \nonumber {\dot{\psi_z} (z, t)}_L &= \frac{G M}{v} \frac{{(z + w t)} \sin ^2(\theta )}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
+    \nonumber {\dot{\psi_z} (z, t)}_R &= \frac{G M}{v} \frac{{(z - w t)} \sin ^2(\theta )}{\left(b^2-{(z - w t)}^2 \sin ^2(\theta )\right)}
+\end{align}
+where w is the wave speed of the wire. The $\mathbf{\hat x}$ and $\mathbf{\hat y}$ waves are transverse/shear waves and the $\mathbf{\hat z}$ is a longitudinal/pressure wave.
+Taking the time derivatives of $\dot{\psi}$ gives the accelerations of the wavepulses;
+\begin{align}
+    \ddot{\psi} (z, t) =& {\ddot{\psi} (z, t)}_L + {\ddot{\psi} (z, t)}_R\\
+    \nonumber {\ddot{\psi} (z, t)}_L =& \frac{G M v \sin (\theta ) \cos (\theta ) \sin (\phi )}{\text{vp} \left(b^2+\sin ^2(\theta ) (t v+\text{zwire})^2\right)}-\\
+    & \frac{2 G M v \sin ^2(\theta ) (t v+\text{zwire}) (b \cos (\phi )+\sin (\theta ) \cos (\theta ) \sin (\phi ) (t v+\text{zwire}))}{\text{vp} \left(b^2+\sin ^2(\theta ) (t v+\text{zwire})^2\right)^2}\\
+\end{align}
+
+It should be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to preven IEEE precision errors.
 % Convert to ivp in wave equation, show agreement between theory and numerical analysis
 \section{Simple Example}
 \end{document}
