@@ -41,7 +41,7 @@ integrating from negative infinity to infinity with time gives
 Dividing these impulses by $\partial m$ gives an initial velocity to each point on the wire which can be used to 
 solve the wave equation and show the time evolution of the wire after the impulse provided by the inciting particle.
 I also used pen and paper analysis to create a travelling wave pulse $\dot{\mathbf{\psi}}$ which matches the solutions provided
-by scipy's solve\_ivp method. It is easy to see that  $I_i = \dot{\psi_i} (z, 0)$
+by scipy's solve\_ivp method. It is easy to see that  $\frac{I_i}{\partial m} = \dot{\psi_i} (z, 0)$
 \begin{align}
     \dot{\psi} (z, t) &= {\dot{\psi} (z, t)}_L + {\dot{\psi} (z, t)}_R\\
     \nonumber\\
@@ -58,11 +58,15 @@ where w is the wave speed of the wire. The $\mathbf{\hat x}$ and $\mathbf{\hat y
 Taking the time derivatives of $\dot{\psi}$ gives the accelerations of the wavepulses;
 \begin{align}
     \ddot{\psi} (z, t) =& {\ddot{\psi} (z, t)}_L + {\ddot{\psi} (z, t)}_R\\
-    \nonumber {\ddot{\psi} (z, t)}_L =& \frac{G M v \sin (\theta ) \cos (\theta ) \sin (\phi )}{\text{vp} \left(b^2+\sin ^2(\theta ) (t v+\text{zwire})^2\right)}-\\
-    & \frac{2 G M v \sin ^2(\theta ) (t v+\text{zwire}) (b \cos (\phi )+\sin (\theta ) \cos (\theta ) \sin (\phi ) (t v+\text{zwire}))}{\text{vp} \left(b^2+\sin ^2(\theta ) (t v+\text{zwire})^2\right)^2}\\
-\end{align}
-
-It should be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to preven IEEE precision errors.
+    \nonumber {\ddot{\psi_x} (z, t)}_R =& -\frac{G M w \sin (\theta ) \cos (\theta ) \sin (\phi )}{v \left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right) }\\
+    & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \cos (\phi )+\sin (\theta ) \cos (\theta ) \sin (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2}\\
+    \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin (\theta ) \cos (\theta ) \cos (\phi )}{v \left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}\\
+    & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \sin (\phi )-\sin (\theta ) \cos (\theta ) \cos (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2} \\
+    \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin ^2(\theta )}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)} - \frac{2 G M w \sin ^4(\theta ) {(z - w t)}^2}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)^2}\\
+\end{align} 
+The left wave pulse accelerations have the same structure as the right except with the signs of each fraction and wavespeed flipped.
+It should also be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to preven IEEE precision errors.
 % Convert to ivp in wave equation, show agreement between theory and numerical analysis
-\section{Simple Example}
+\section{Example}
+The example that best shows each individual waveform is with $\phi = 90^\circ$ and $\theta = 45^\circ$.
 \end{document}
