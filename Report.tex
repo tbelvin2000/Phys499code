@@ -1,5 +1,5 @@
 \documentclass{report}
-\usepackage{graphicx, siunitx, amsmath} % Required for inserting images
+\usepackage{graphicx, siunitx, amsmath, float} % Required for inserting images
 \title{Phys499A Report}
 \author{Thomas Belvin}
 \date{October 2023}
@@ -62,11 +62,37 @@ Taking the time derivatives of $\dot{\psi}$ gives the accelerations of the wavep
     & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \cos (\phi )+\sin (\theta ) \cos (\theta ) \sin (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2}\\
     \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin (\theta ) \cos (\theta ) \cos (\phi )}{v \left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}\\
     & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \sin (\phi )-\sin (\theta ) \cos (\theta ) \cos (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2} \\
-    \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin ^2(\theta )}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)} - \frac{2 G M w \sin ^4(\theta ) {(z - w t)}^2}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)^2}\\
+    \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin ^2(\theta )}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)} - \frac{2 G M w \sin ^4(\theta ) {(z - w t)}^2}{v {\left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)}^2}\\
 \end{align} 
 The left wave pulse accelerations have the same structure as the right except with the signs of each fraction and wavespeed flipped.
 It should also be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to preven IEEE precision errors.
 % Convert to ivp in wave equation, show agreement between theory and numerical analysis
+
+
 \section{Example}
 The example that best shows each individual waveform is with $\phi = 90^\circ$ and $\theta = 45^\circ$.
+
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{Relativistic DM/Relativistic DM accelerations, first pulse theory matched, b05.png}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{Relativistic DM/Galactic Orbit DM accelerations, first pulse theory matched, b05.png}
+\end{figure}
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{Relativistic DM/Thermal Neutron accelerations, first pulse theory matched, b05.png}
+\end{figure}
+
+It can be seen in the above figures, the Particle mass and speed only affect the overall $\frac{G M}{v}$ factor and do not impact the shape of the 
+accelerations.
+
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{Relativistic DM/Relativistic DM accelerations, first pulse theory matched, b01.png}
+\end{figure}
+
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{Relativistic DM/Relativistic DM accelerations, first pulse theory matched, b1.png}
+\end{figure}
+
+While these two figures show that the minimum distance of the track from the wire has a significant affect on the 
+amplitude and width of the accelerations.
 \end{document}
