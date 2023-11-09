@@ -1,5 +1,7 @@
 \documentclass{report}
 \usepackage{graphicx, siunitx, amsmath, float} % Required for inserting images
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{References.bib} %Import the bibliography file
 \title{Phys499A Report}
 \author{Thomas Belvin}
 \date{October 2023}
@@ -80,14 +82,16 @@ This figure shows that you can fit $b \text{, } \phi \text{, and} \theta$ to the
 The maximum force (without the GM/v component) caused by each wave has been approximated by taking the FWHM * linear mass density * wave speed. This combined with 
 the magnitude of the $\frac{G M}{v}$ component can give us an estimation for how sensitive our force sensors would have to be.
 
-Based on **Reference to writing on force sensors** most force sensors work best within a range of milli-Newtons, with more sensitive ones being able to detect micro-Newtons.
-The most sensitive force sensor I found was able to detect about 10 zepto-Newtons ** Reference **. 
+Based on~\cite{WEI2015359} most force sensors work best within a range of milli-Newtons, with more sensitive ones being able to detect micro-Newtons.
+The most sensitive force sensor I found was able to detect about 10 zepto-Newtons~\cite{Moser2013}. 
 
 Based off the figure, the maximum detected force is around the order of $10^2$ to $10^4$ $\times \frac{G M}{v}$ Newtons. This gives somethings around $10^{-9}$ to $10^{-7}$ $\times \frac{M}{v}$. 
 The inciting particle is likely to be travelling somewhere between $220 \text{ } \frac{km}{s}$ and $3e5 \text{ } \frac{km}{s}$ leaving us with a force of approximately $10^{-17}$ to $10^{-12}$ $\times M$ Newtons.
 In order for this to be detectable with one of the detectors mentioned in ** Reference article going over force sensors ** we would need a particle mass somewhere on the order of $10^{14}$ to $10^{6}$ kilograms. 
-With a specialized sensor such as the one from ** other reference ** we could allow particle mass to be as low as $10^{-6}$ to $10^{-3}$ Newtons. 
+With a specialized sensor such as the one from~\cite{Moser2013} we could allow particle mass to be as low as $10^{-6}$ to $10^{-3}$ Newtons. 
 
 By choosing a wire that maximizes cross-sectional area (increasing Tension and linear mass density) as well as Tensile strength and Elastic modulus (to maximize wave speed) we may be able to increase the range of detectable 
 particle masses, as this will correspondingly increase the magnitude of the force.
+
+\printbibliography[]
 \end{document}
