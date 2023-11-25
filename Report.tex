@@ -10,7 +10,7 @@
 \chapter*{Introduction}
 In this thesis paper by Gosh \emph{Insert ref to Gosh Thesis}, they use a matrix of sensor nodes to detect massive particles by measuring and mapping the displacement of the nodes.
 Inspired by this, the goal of this report is to assess the viability of detecting massive particles with a wire.
-A massive particle passing by a wire will provide an impulse which will incite wave pulses along the wire that may be detectable by force sensors. 
+A massive particle passing by a wire with sufficent speed will provide an impulse which will incite wave pulses along the wire that may be detectable by force sensors. 
 
 \emph{This could definitely be written better xd}
 \section*{Coordinate System}
@@ -21,9 +21,8 @@ A massive particle moving past a wire will apply a force, $\mathbf{F}$, to the w
 \end{equation}
 where $M$ is the mass of the inciting particle, $\partial m$ is the mass of a small segment of the wire and $\mathbf{r}$ is the vector between the particle and that segment of the wire.
 
-If the particle is moving at a sufficiently fast speed, $v$, the  interaction can be approximated as an impulse and the particle trajectory as a straight track.
+If the particle is moving at a sufficiently fast speed, $v$, the  interaction can be approximated as an impulse and the particle trajectory as a straight track. We can define the coordinate system such that the wire lies on the $\mathbf{\hat z}$ axes and the distance of closest approach between the wire and the particle track, $b$, is centered at $z = 0$.
 
-We define the coordinate system such that the wire lies on the $\mathbf{\hat z}$ axes and the distance of closest approach between the wire and the particle track, $b$, is centered at $z = 0$.
 The vector between a point on the wire, $z$ and the track, $\mathbf{r}$, is then defined as
 \begin{align}
     \nonumber \mathbf{r}=& (b \cos (\phi )+t v \sin (\theta ) \sin (\phi )) \mathbf{\hat x} \\
@@ -47,8 +46,7 @@ Dividing these impulses by $\partial m$ gives an initial velocity to each point 
 Dividing $\mathbf{I}$ (\ref{eqn:impulse}) by $\partial m$ will give us an equation for initial velocity at every point along the wire, $\mathbf{\dot\psi} (z, 0)$. 
 There will be two travelling waves of equal magnitude moving in opposite direction we can divide seperate $\mathbf{\dot\psi}(z,0)$ into left and right travelling waves moving along the wire with speed $w$ resulting in
 \begin{align}
-    \mathbf{\dot{\psi}} (z, t) &= {\dot{\psi} (z, t)}_L + {\dot{\psi} (z, t)}_R\\
-    \label{eqn:velocity pulse}
+    \mathbf{\dot{\psi}} (z, t) &= {\dot{\psi} (z, t)}_L + {\dot{\psi} (z, t)}_R \label{eqn:velocity pulse}\\
     \nonumber\\
     \nonumber {\dot{\psi_x} (z, t)}_L &= \frac{G M}{v} \frac{b \cos (\phi )+ (z - w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z - w t)}^2 \sin ^2(\theta )}\\
     \nonumber {\dot{\psi_x} (z, t)}_R &= \frac{G M}{v} \frac{b \cos (\phi )+ (z + w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z + w t)}^2 \sin ^2(\theta )}\\
@@ -59,26 +57,26 @@ There will be two travelling waves of equal magnitude moving in opposite directi
     \nonumber {\dot{\psi_z} (z, t)}_L &= \frac{G M}{v} \frac{{(z + w t)} \sin ^2(\theta )}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
     \nonumber {\dot{\psi_z} (z, t)}_R &= \frac{G M}{v} \frac{{(z - w t)} \sin ^2(\theta )}{\left(b^2-{(z - w t)}^2 \sin ^2(\theta )\right)}
 \end{align}
-The $\mathbf{\hat x}$ and $\mathbf{\hat y}$ waves are transverse/shear waves and the $\mathbf{\hat z}$ is a longitudinal/pressure wave.
-Taking the time derivatives of $\dot{\psi}$ gives the accelerations of the wavepulses;
+$\dot{\psi_x}$ and $\dot{\psi_y}$ are transverse/shear waves and have a different wavespeed, $w$, than the longitudinal/pressure waves, $\dot{\psi_x}$.
+
+Taking the time derivatives of $\mathbf{\dot{\psi}}$ gives us the accelerations of the wavepulses, $\mathbf{\ddot \psi}$
 \begin{align}
-    \ddot{\psi} (z, t) =& {\ddot{\psi} (z, t)}_L + {\ddot{\psi} (z, t)}_R\\
+    \mathbf{\ddot\psi} (z, t) =& {\ddot{\psi} (z, t)}_L + {\ddot{\psi} (z, t)}_R\label{acceleration_pulse}\\
     \nonumber {\ddot{\psi_x} (z, t)}_R =& -\frac{G M w \sin (\theta ) \cos (\theta ) \sin (\phi )}{v \left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right) }\\
     & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \cos (\phi )+\sin (\theta ) \cos (\theta ) \sin (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2}\\
     \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin (\theta ) \cos (\theta ) \cos (\phi )}{v \left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}\\
     & +\frac{2 G M w \sin ^2(\theta ) (z - w t) (b \sin (\phi )-\sin (\theta ) \cos (\theta ) \cos (\phi ) (z - w t))}{v {\left(b^2+\sin ^2(\theta ) {(z - w t)}^2\right)}^2} \\
     \nonumber {\ddot{\psi_y} (z, t)}_R =& \frac{G M w \sin ^2(\theta )}{v \left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)} - \frac{2 G M w \sin ^4(\theta ) {(z - w t)}^2}{v {\left(b^2+\sin ^2(\theta ) {(z + w t)}^2\right)}^2}\\
 \end{align} 
-The left wave pulse accelerations have the same structure as the right except with the signs of each fraction and wavespeed are flipped. 
+The left wave pulse accelerations are the same as the right with the signs of each fraction and $w$ inverted. 
 % Add figure showing agreement between solve_ivp and these equations?
-It should also be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to prevent IEEE precision errors.
+It should also be noted that when plugging values into a computer I factored out the $\frac{G M}{v}$ term to prevent IEEE precision errors when using a numerical solver such as sicpys solve ivp.
 % Convert to ivp in wave equation, show agreement between theory and numerical analysis
-
-
 \chapter*{Force Detection}
 \section*{Acceleration on a point}
-The example that best shows each individual waveform is with $\phi = 90^\circ$ and $\theta = 45^\circ$. I am analyzing the acceleration at a single point on the wire to estimate the force applied. If a force sensor was
-placed on a fixed end of the wire the magnitude of the forces would??? % I think doubled but I'm not sure
+The example that best shows each individual waveform is with $\phi = 90^\circ$ and $\theta = 45^\circ$. We can then analyze the the acceleration at single point to 
+
+\emph{Need work here xd **}
 
 \begin{figure}[H]
     \includegraphics[width=\linewidth]{DifferentBsWithForceApprox.png}
@@ -88,13 +86,13 @@ placed on a fixed end of the wire the magnitude of the forces would??? % I think
 This figure shows that you can fit $b \text{, } \phi \text{, and} \theta$ to the shape of the wave and then find $\frac{G M}{v}$ from the amplitude of force.
 
 \section*{Recovering Force}
-By dimensional analysis, we can estimate mass by taking the FWHM * linear mass density * wavespeed
+By dimensional analysis, we can estimate mass by taking the Full Width Half Max of the acceleration pulse $\times$ linear mass density $\times$ wavespeed.
 The maximum force (with $\frac{G M}{v}$ factored out) can then be approximated by multiplying this mass with the maximum acceleration in~\ref{fig:normAcc}. This combined with 
 the magnitude of the $\frac{G M}{v}$ component can give us an estimation for how sensitive our force sensors would have to be.
 
-Based on~\cite{WEI2015359} most force sensors have a maximum sensitivity of milli-Newtons, with a few being able to detect micro-Newtons.
-This article~\cite{Moser2013} talks about acheiving a sensitivity of tens of zepto-Newtons using carbon nanotubes and capacitive sensing. 
-
+Based on this \emph{year} report by \emph{** AUTHOR **}~\cite{WEI2015359} most force sensors have a maximum sensitivity of milli-Newtons, with a few being able to detect micro-Newtons.
+This article from \emph{year} by \emph{AUTHOR}~\cite{Moser2013} states that a sensitivity of tens of zepto-Newtons can be achieved using carbon nanotubes and capacitive sensing. 
+% Somewhere around here
 Based off the figure, the maximum detected force is around the order of $10^2$ to $10^4$ $\times \frac{G M}{v}$ Newtons. This gives somethings around $10^{-9}$ to $10^{-7}$ $\times \frac{M}{v}$. 
 The inciting particle is likely to be travelling somewhere between $220 \text{ } \frac{km}{s}$ and $3e5 \text{ } \frac{km}{s}$ leaving us with a force of approximately $10^{-17}$ to $10^{-12}$ $\times M$ Newtons.
 In order for this to be detectable with one of the detectors mentioned in~\cite{WEI2015359} we would need a particle mass somewhere on the order of $10^{14}$ to $10^{6}$ kilograms. 
