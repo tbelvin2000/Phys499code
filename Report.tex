@@ -8,10 +8,11 @@
 \begin{document}
 \maketitle
 \chapter*{Introduction}
-In this thesis paper by Gosh \emph{Insert ref to Gosh Thesis}, they use a matrix of sensor nodes to detect massive particles by measuring and mapping the displacement of the nodes.
-Inspired by this, the goal of this report is to assess the viability of detecting massive particles with a wire.
-A massive particle passing by a wire with sufficent speed will provide an impulse which will incite wave pulses along the wire that may be detectable by force sensors. 
-By analyzing the wave pulses we may be able to determine properites of the inciting particle.
+In this dissertation~\cite{Gosh2023}, they use a matrix of sensor nodes to detect massive particles by measuring and mapping the displacement of the nodes.
+The goal of this report is to see if a similar concept is achievable by detecting waves on a wire.
+This could potentially allow for a much simpler sensing matrix as each row of individual nodes would be replaced with a single wire.
+A massive particle passing by a wire with sufficent speed will provide an impulse which will create wave pulses along the wire that may be detectable by force sensors. 
+By analyzing these wave pulses we may be able to determine properites of the inciting particle.
 
 \emph{This could definitely be written better xd}
 \section*{Coordinate System}
@@ -52,16 +53,17 @@ Because of this, we can seperate $\mathbf{\dot\psi}(z,0)$ into left and right tr
 \begin{align}
     \mathbf{\dot{\psi}} (z, t) &= {\dot{\psi} (z, t)}_L + {\dot{\psi} (z, t)}_R \label{eqn:velocity pulse}\\
     \nonumber\\
-    \nonumber {\dot{\psi_x} (z, t)}_L &= \frac{G M}{v} \frac{b \cos (\phi )+ (z - w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z - w t)}^2 \sin ^2(\theta )}\\
+    % \nonumber {\dot{\psi_x} (z, t)}_L &= \frac{G M}{v} \frac{b \cos (\phi )+ (z - w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z - w t)}^2 \sin ^2(\theta )}\\
     \nonumber {\dot{\psi_x} (z, t)}_R &= \frac{G M}{v} \frac{b \cos (\phi )+ (z + w t) \sin (\theta ) \cos (\theta ) \sin (\phi )}{b^2-{(z + w t)}^2 \sin ^2(\theta )}\\
     \nonumber\\
-    \nonumber {\dot{\psi_y} (z, t)}_L &= \frac{G M}{v} \frac{(b \sin (\phi )-{(z + w t)} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
+    % \nonumber {\dot{\psi_y} (z, t)}_L &= \frac{G M}{v} \frac{(b \sin (\phi )-{(z + w t)} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
     \nonumber {\dot{\psi_y} (z, t)}_R &= \frac{G M}{v} \frac{(b \sin (\phi )-{(z - w t)} \sin (\theta ) \cos (\theta ) \cos (\phi ))}{\left(b^2-{(z - w t)}^2 \sin ^2(\theta )\right)}
     \nonumber\\
-    \nonumber {\dot{\psi_z} (z, t)}_L &= \frac{G M}{v} \frac{{(z + w t)} \sin ^2(\theta )}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
+    % \nonumber {\dot{\psi_z} (z, t)}_L &= \frac{G M}{v} \frac{{(z + w t)} \sin ^2(\theta )}{\left(b^2-{(z + w t)}^2 \sin ^2(\theta )\right)}\\
     \nonumber {\dot{\psi_z} (z, t)}_R &= \frac{G M}{v} \frac{{(z - w t)} \sin ^2(\theta )}{\left(b^2-{(z - w t)}^2 \sin ^2(\theta )\right)}
 \end{align}
-It should be kept in mind that $\dot{\psi_x}$ and $\dot{\psi_y}$ are transverse/shear waves and may have a different wavespeed, $w$, than the longitudinal/pressure waves, $\dot{\psi_x}$.
+Where the left moving wave pulse has the same form but $w$ has the opposite sign.
+It should be kept in mind that $\dot{\psi_x}$ and $\dot{\psi_y}$ are transverse/shear waves and may have a different wavespeed, $w$, than the longitudinal/pressure waves ($\dot{\psi_z}$).
 
 Taking the time derivatives of $\mathbf{\dot{\psi}}$ gives us the accelerations of the wavepulses, $\mathbf{\ddot \psi}$
 \begin{align}
@@ -88,12 +90,13 @@ With $\phi = 90^\circ$ and $\theta = 45^\circ$ we get the following acceleration
 The unique shape of the accelerations at different values of $b$ means we could fit $b$, $\phi$, and $\theta$ from the shape of the curve and find the $\frac{M}{v}$ ratio of the particle from the magnitude of the force measured at a point on the wire.
 
 \section*{Recovering Force}
-By dimensional analysis, we can estimate mass by taking the Full Width Half Max of the acceleration pulse $\times$ the linear mass density of the wire $\times$ the wavespeed.
-The maximum force (with $\frac{G M}{v}$ factored out) can then be approximated by multiplying this mass with the maximum acceleration in~\ref{fig:normAcc}. This combined with 
+In order to see if modern force sensing techniques could detect the induced waves, we need to find the force measured on a segment of the wire.
+By dimensional analysis, we can estimate mass by taking the Full Width Half Max of the acceleration pulse $\times$ the linear mass density of the wire $\times$ the wavespeed, $w$.
+The maximum force (without the $\frac{G M}{v}$ factor) can then be approximated by multiplying this mass with the maximum acceleration in the unormalized data from~\ref{fig:normAcc}. This combined with 
 the magnitude of the $\frac{G M}{v}$ component can give us an estimation for how sensitive our force sensors would have to be to detect the waves incited by a massive particle.
 
-Based on this \emph{year} report by \emph{** AUTHOR **}~\cite{WEI2015359} most force sensors have a maximum sensitivity of milli-Newtons, with a few being able to detect micro-Newtons.
-This article from \emph{year} by \emph{AUTHOR}~\cite{Moser2013} states that a sensitivity of tens of zepto-Newtons can be achieved using carbon nanotubes and capacitive sensing. 
+Based on a 2015 review~\cite{WEI2015359} most force sensors have a maximum sensitivity of milli-Newtons, with a few being able to detect micro-Newtons.
+This article from 2017~\cite{Moser2013} states that a sensitivity of tens of zepto-Newtons can be achieved using carbon nanotubes and capacitive sensing. 
 
 Applying this to figure~\ref*{fig:normAcc} gives the maximum detected force as around the order of $10^2$ to $10^4$ $\times \frac{G M}{v}$ Newtons or around $10^{-9}$ to $10^{-7}$ $\times \frac{M}{v}$ once we factor in $G$. 
 The inciting particle is likely to be travelling somewhere between $220 \text{ } \frac{km}{s}$ and $3e5 \text{ } \frac{km}{s}$ leaving us with a force of approximately $10^{-17}$ to $10^{-12}$ $\times M$ Newtons.
@@ -103,14 +106,18 @@ The inciting particle is likely to be travelling somewhere between $220 \text{ }
 In order for this to be detectable with one of the detectors mentioned in~\cite{WEI2015359} we would need a particle mass somewhere on the order of $10^{14}$ to $10^{6}$ kilograms. 
 With a more detector such as the one from~\cite{Moser2013} we could perhaps allow particle mass to be as low as $10^{-6}$ to $10^{-3}$ kilograms. 
 \section*{Optimizable Parameters}
-By choosing a wire that maximizes cross-sectional area (increasing Tension and linear mass density) as well as Tensile strength and Elastic modulus (to maximize wave speed) we may be able to increase the range of detectable 
-particle masses, as this will correspondingly increase the magnitude of the force.
+I will tentatively claim that by choosing a wire that maximizes cross-sectional area (increasing Tension and linear mass density) as well as wave speed we can increase the force applied and thus what is detectable, however this requires more analysis to be done next semester.
 
-\emph{TRIPLE CHECK THAT THESE ARE ACTUALLY WHAT WOULD OPTIMIZE IT}
 \section*{Other Methods}
+After rexamination of the project force detection requires displacement and thus analyzing the displacements caused is more likely to lead to a definitive conclusion.
+
+There are also other set ups that could potentially be used to detect the massive particles, though how they could be analyzed would require further examination. 
+These include capacitive sensing between two wires or of a single wire (such as the set up in~\cite{Moser2013})
 % Capacitive sensing both like Moser and also between two wires with a capacitive bridge?
 % Could find displacement by integrating psi_dot(r, t)
 % Other options for recovering force 
+% b = 1mm
 \chapter*{Conclusion}
+It is unlikely that modern force sensing techniques are precise enough to detect the waves incited on a wire by a massive particle. 
 \printbibliography[]
 \end{document}

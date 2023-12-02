@@ -19,6 +19,31 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{Gosh2023}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=ef06d8b13ddbcedf3244337d3f0bae0f}{%
+           family={Gosh},
+           familyi={G\bibinitperiod},
+           given={Sohitri},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of Maryland, College Park}%
+      }
+      \strng{namehash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \strng{fullhash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \strng{bibnamehash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \strng{authorbibnamehash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \strng{authornamehash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \strng{authorfullhash}{ef06d8b13ddbcedf3244337d3f0bae0f}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{QUANTUM ENHANCED IMPULSE MEASUREMENTS AND THEIR APPLICATIONS IN SEARCHES FOR DARK MATTER}
+      \field{type}{phdthesis}
+      \field{year}{2023}
+    \endentry
     \entry{Moser2013}{article}{}
       \name{author}{7}{}{%
         {{hash=97060d29558de3817a00e28fd3b29fba}{%
