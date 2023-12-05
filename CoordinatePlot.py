@@ -22,8 +22,8 @@ ax.plot(b * np.cos(phi) * np.ones(100), b * np.sin(phi) * np.ones(100), np.linsp
 ax.plot(np.linspace(0, b * np.cos(phi), 100), np.linspace(0, b * np.sin(phi), 100), np.zeros(100))
 # Plot phi and theta
 angle = np.linspace(0, 1, 100)
-ax.plot(b/6 * np.cos(angle * phi), b/6 * np.sin(angle * phi), 0)
-ax.plot(b * np.cos(phi) + 2 * np.sin(angle * theta) * np.sin(phi), b * np.sin(phi) - 2 * np.sin(angle * theta) * np.cos(phi), 2 * np.cos(angle * theta))
+ax.plot(b/3 * np.cos(angle * phi), b/3 * np.sin(angle * phi), 0)
+ax.plot(b * np.cos(phi) + 4 * np.sin(angle * theta) * np.sin(phi), b * np.sin(phi) - 4 * np.sin(angle * theta) * np.cos(phi), 4 * np.cos(angle * theta))
 # Plot particle track
 ax.plot(x, y, z, label='Particle Track')
 ax.legend()
