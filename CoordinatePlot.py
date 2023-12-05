@@ -17,17 +17,18 @@ y = b * np.sin(phi) - v * t * np.sin(theta) * np.cos(phi)
 ax.plot(np.linspace(0, 8, 100), np.zeros(100), np.zeros(100), color="grey")
 ax.plot(np.zeros(100), np.linspace(0, 6, 100), np.zeros(100), color="grey")
 ax.plot(np.zeros(t.shape), np.zeros(t.shape), t, color = "silver")
+ax.plot(b * np.cos(phi) * np.ones(100), b * np.sin(phi) * np.ones(100), np.linspace(-10, 10,100), linestyle='--', color="gray", alpha=0.5)
 # Plot b
 ax.plot(np.linspace(0, b * np.cos(phi), 100), np.linspace(0, b * np.sin(phi), 100), np.zeros(100))
 # Plot phi and theta
 angle = np.linspace(0, 1, 100)
 ax.plot(b/6 * np.cos(angle * phi), b/6 * np.sin(angle * phi), 0)
 ax.plot(b * np.cos(phi) + 2 * np.sin(angle * theta) * np.sin(phi), b * np.sin(phi) - 2 * np.sin(angle * theta) * np.cos(phi), 2 * np.cos(angle * theta))
-ax.plot(b * np.cos(phi) * np.ones(100), b * np.sin(phi) * np.ones(100), np.linspace(-10, 10,100), linestyle='--', color="gray", alpha=0.5)
 # Plot particle track
 ax.plot(x, y, z, label='Particle Track')
 ax.legend()
 
+# Labels
 ax.text(8, 0, -1.5, "x axes")
 ax.text(0, 6, -1.5, "y axes")
 ax.text(0, .1, 10, "wire (z axes)")
